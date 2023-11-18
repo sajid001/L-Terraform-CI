@@ -21,6 +21,10 @@ provider "azurerm" {
 resource "azurerm_resource_group" "tfrg001" {
   name     = "tfrg001"
   location = "uk south"
+  
+  tags = {
+    environment = "dev"
+  }
 }
 
 resource "azurerm_storage_account" "tfstorageaccount001" {
@@ -29,5 +33,9 @@ resource "azurerm_storage_account" "tfstorageaccount001" {
   location                 = azurerm_resource_group.tfrg001.location
   account_tier             = "Standard"
   account_replication_type = "LRS"
+  
+  tags = {
+    environment = "dev"
+  }
 
 }
